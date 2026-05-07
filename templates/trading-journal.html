@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}Trading Journal - Insights360{% endblock %}
+
+{% block content %}
+<section class="hero-section" style="padding: 40px 20px;">
+  <h1 class="hero-title">📝 Trading Journal</h1>
+</section>
+
+<section class="container" style="padding: 40px 20px;">
+  <div class="card">
+    <div class="card-header">
+      <h3 class="card-title">My Trades</h3>
+    </div>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Pair</th>
+          <th>Entry</th>
+          <th>Exit</th>
+          <th>P/L</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td colspan="6" style="text-align: center; padding: 40px;">
+            <p style="color: var(--text-secondary);">No trades recorded yet. Start logging your trades to improve your performance!</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="margin-top: 20px;">
+      <button class="btn btn-primary">📊 Add New Trade</button>
+    </div>
+  </div>
+
+  <!-- Statistics -->
+  <div class="grid grid-4" style="margin-top: 40px;">
+    <div class="stat-card">
+      <div class="stat-value">0</div>
+      <div class="stat-label">Total Trades</div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-value">0%</div>
+      <div class="stat-label">Win Rate</div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-value">$0</div>
+      <div class="stat-label">Total P/L</div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-value">0</div>
+      <div class="stat-label">Winning Streak</div>
+    </div>
+  </div>
+</section>
+{% endblock %}

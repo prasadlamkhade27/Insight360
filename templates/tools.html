@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}Trading Tools - Insights360{% endblock %}
+
+{% block content %}
+<section class="hero-section" style="padding: 40px 20px;">
+  <h1 class="hero-title">🛠️ Trading Tools</h1>
+</section>
+
+<section class="container" style="padding: 40px 20px;">
+  <div class="grid grid-2">
+    <!-- Position Sizer -->
+    <a href="/risk-calculator" class="card" style="text-decoration: none; cursor: pointer;">
+      <div class="feature-icon" style="text-align: left; font-size: 2.5rem;">📏</div>
+      <h3 class="card-title">Position Size Calculator</h3>
+      <p style="color: var(--text-secondary);">Calculate optimal position sizes based on your account size and risk tolerance.</p>
+      <div style="color: var(--primary-light); margin-top: 15px;">Click to open →</div>
+    </a>
+
+    <!-- Pip Value Calculator -->
+    <div class="card">
+      <div class="feature-icon" style="text-align: left; font-size: 2.5rem;">💱</div>
+      <h3 class="card-title">Pip Value Calculator</h3>
+      <p style="color: var(--text-secondary);">Calculate the monetary value of each pip in your trades.</p>
+      <div style="color: var(--primary-light); margin-top: 15px;">Coming soon</div>
+    </div>
+
+    <!-- Lot Size Converter -->
+    <div class="card">
+      <div class="feature-icon" style="text-align: left; font-size: 2.5rem;">🔄</div>
+      <h3 class="card-title">Lot Size Converter</h3>
+      <p style="color: var(--text-secondary);">Convert between micro, mini, and standard lot sizes instantly.</p>
+      <div style="color: var(--primary-light); margin-top: 15px;">Coming soon</div>
+    </div>
+
+    <!-- Profit Calculator -->
+    <div class="card">
+      <div class="feature-icon" style="text-align: left; font-size: 2.5rem;">💰</div>
+      <h3 class="card-title">Profit & Loss Calculator</h3>
+      <p style="color: var(--text-secondary);">Calculate potential profits and losses for your trades.</p>
+      <div style="color: var(--primary-light); margin-top: 15px;">Coming soon</div>
+    </div>
+
+    <!-- Pivot Point Calculator -->
+    <div class="card">
+      <div class="feature-icon" style="text-align: left; font-size: 2.5rem;">📊</div>
+      <h3 class="card-title">Pivot Point Calculator</h3>
+      <p style="color: var(--text-secondary);">Calculate daily, weekly, and monthly pivot points.</p>
+      <div style="color: var(--primary-light); margin-top: 15px;">Coming soon</div>
+    </div>
+
+    <!-- Margin Calculator -->
+    <div class="card">
+      <div class="feature-icon" style="text-align: left; font-size: 2.5rem;">🔐</div>
+      <h3 class="card-title">Margin Calculator</h3>
+      <p style="color: var(--text-secondary);">Calculate margin requirements for your positions.</p>
+      <div style="color: var(--primary-light); margin-top: 15px;">Coming soon</div>
+    </div>
+  </div>
+</section>
+{% endblock %}

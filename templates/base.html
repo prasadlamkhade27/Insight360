@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Insights360 - Professional Trading Strategy Planner{% endblock %}</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  {% block extra_css %}{% endblock %}
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="/" class="navbar-brand">
+        <div class="navbar-brand-icon">📊</div>
+        <span>Insights360</span>
+      </a>
+      
+      <ul class="navbar-menu">
+        <li><a href="/" class="{% if request.endpoint == 'home' %}active{% endif %}">Home</a></li>
+        <li><a href="/dashboard" class="{% if request.endpoint == 'dashboard' %}active{% endif %}">Dashboard</a></li>
+        <li><a href="/risk-calculator" class="{% if request.endpoint == 'risk_calculator' %}active{% endif %}">Risk Calculator</a></li>
+        <li><a href="/trading-journal" class="{% if request.endpoint == 'trading_journal' %}active{% endif %}">Journal</a></li>
+        <li><a href="/educational-hub" class="{% if request.endpoint == 'educational_hub' %}active{% endif %}">Learn</a></li>
+        <li><a href="/tools" class="{% if request.endpoint == 'tools' %}active{% endif %}">Tools</a></li>
+      </ul>
+      
+      <div class="navbar-right">
+        <a href="/#planner" class="btn-nav">Get Started</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE WRAPPER -->
+  <div class="page-wrapper">
+    <!-- PAGE CONTENT -->
+    <div class="page-content">
+      {% block content %}{% endblock %}
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-content">
+        <!-- About Section -->
+        <div class="footer-section">
+          <h4>📊 About Insights360</h4>
+          <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 15px;">
+            Professional trading strategy simulator and calculator. Backtest your strategies, manage risk, and plan your trades before risking real capital.
+          </p>
+          <div style="display: flex; gap: 15px; font-size: 1.5rem;">
+            <a href="#" style="color: var(--primary-light); transition: all 0.3s;">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" style="color: var(--primary-light); transition: all 0.3s;">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="#" style="color: var(--primary-light); transition: all 0.3s;">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-section">
+          <h4>⚡ Quick Links</h4>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/risk-calculator">Risk Calculator</a></li>
+            <li><a href="/tools">Trading Tools</a></li>
+            <li><a href="/about">About Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Trading Tools -->
+        <div class="footer-section">
+          <h4>🛠️ Trading Tools</h4>
+          <ul>
+            <li><a href="/risk-calculator">Position Sizer</a></li>
+            <li><a href="/trading-journal">Trading Journal</a></li>
+            <li><a href="/#planner">Strategy Planner</a></li>
+            <li><a href="/educational-hub">Education Hub</a></li>
+          </ul>
+        </div>
+
+        <!-- Resources -->
+        <div class="footer-section">
+          <h4>📚 Resources</h4>
+          <ul>
+            <li><a href="/educational-hub">Learning Materials</a></li>
+            <li><a href="#">Market Analysis</a></li>
+            <li><a href="#">Trading Signals</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Community</a></li>
+          </ul>
+        </div>
+
+        <!-- Support -->
+        <div class="footer-section">
+          <h4>💬 Support</h4>
+          <ul>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Report Bug</a></li>
+            <li><a href="#">Feedback</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Disclaimer</a>
+          <a href="#">Contact</a>
+        </div>
+        <div>
+          <p>&copy; 2026 Insights360. All rights reserved. | Professional Trading Strategy Simulator</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="{{ url_for('static', filename='main.js') }}"></script>
+  {% block extra_js %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block title %}Educational Hub - Insights360{% endblock %}
+
+{% block content %}
+<section class="hero-section" style="padding: 40px 20px;">
+  <h1 class="hero-title">📚 Educational Hub</h1>
+  <p class="hero-subtitle">Master trading, risk management, and strategy development</p>
+</section>
+
+<section class="container" style="padding: 40px 20px;">
+  <!-- Categories -->
+  <div class="card" style="margin-bottom: 40px;">
+    <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+      <button class="btn btn-secondary" onclick="filterResources('all')">All Resources</button>
+      <button class="btn btn-secondary" onclick="filterResources('Education')">Education</button>
+      <button class="btn btn-secondary" onclick="filterResources('Risk')">Risk Management</button>
+      <button class="btn btn-secondary" onclick="filterResources('Forex')">Forex</button>
+      <button class="btn btn-secondary" onclick="filterResources('Psychology')">Psychology</button>
+    </div>
+  </div>
+
+  <!-- Resources Grid -->
+  <div class="grid grid-3">
+    {% for resource in resources %}
+    <div class="card resource-card">
+      <div class="card-header">
+        <div style="font-size: 2.5rem; margin-bottom: 15px;">{{ resource.icon }}</div>
+        <h3 class="card-title">{{ resource.title }}</h3>
+        <span class="badge badge-primary">{{ resource.category }}</span>
+      </div>
+      <p style="color: var(--text-secondary); margin-bottom: 20px;">{{ resource.description }}</p>
+      <button class="btn btn-primary" style="width: 100%;">Start Learning</button>
+    </div>
+    {% endfor %}
+  </div>
+
+  <!-- Featured Course -->
+  <div class="card" style="margin-top: 60px; background: linear-gradient(135deg, rgba(30, 136, 229, 0.1) 0%, rgba(0, 188, 212, 0.1) 100%);">
+    <div class="card-header">
+      <h3 class="card-title">⭐ Featured: Forex Trading 101</h3>
+    </div>
+
+    <div class="grid grid-2">
+      <div>
+        <h4 style="color: var(--primary-light); margin-bottom: 15px;">Course Content</h4>
+        <ol style="color: var(--text-secondary); margin-left: 20px; line-height: 1.8;">
+          <li>Introduction to Forex Markets</li>
+          <li>Currency Pairs and Trading</li>
+          <li>Technical Analysis Basics</li>
+          <li>Risk Management Fundamentals</li>
+          <li>Trading Psychology</li>
+          <li>Your First Trade</li>
+        </ol>
+      </div>
+
+      <div style="display: flex; flex-direction: column; justify-content: center;">
+        <div style="padding: 20px; background: rgba(30, 136, 229, 0.2); border-radius: 8px; margin-bottom: 20px;">
+          <p style="color: var(--text-secondary); font-size: 0.9rem;">Duration</p>
+          <p style="font-size: 1.5rem; font-weight: bold; color: var(--primary-light);">4 Hours</p>
+        </div>
+
+        <button class="btn btn-primary" style="width: 100%;">Enroll Now</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function filterResources(category) {
+    const cards = document.querySelectorAll('.resource-card');
+    cards.forEach(card => {
+      if (category === 'all' || card.textContent.includes(category)) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+</script>
+{% endblock %}

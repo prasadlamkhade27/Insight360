@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+
+{% block title %}Risk Calculator - Insights360{% endblock %}
+
+{% block content %}
+<section class="hero-section" style="padding: 40px 20px;">
+  <h1 class="hero-title">🛡️ Risk Calculator</h1>
+</section>
+
+<section class="container" style="padding: 40px 20px;">
+  <div class="grid grid-2">
+    <!-- Calculator Form -->
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Position Size Calculator</h3>
+      </div>
+
+      <form id="riskForm">
+        <div class="form-group">
+          <label for="account_balance">Account Balance ($)</label>
+          <input type="number" id="account_balance" step="0.01" value="10000" required>
+        </div>
+
+        <div class="form-group">
+          <label for="risk_percent">Risk per Trade (%)</label>
+          <input type="number" id="risk_percent" step="0.1" min="0" max="10" value="1" required>
+        </div>
+
+        <div class="form-group">
+          <label for="entry_price">Entry Price</label>
+          <input type="number" id="entry_price" step="0.0001" value="1.1000" required>
+        </div>
+
+        <div class="form-group">
+          <label for="stop_loss">Stop Loss Price</label>
+          <input type="number" id="stop_loss" step="0.0001" value="1.0900" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%;">Calculate</button>
+      </form>
+    </div>
+
+    <!-- Results -->
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Results</h3>
+      </div>
+
+      <div id="riskResults" style="display: none;">
+        <div style="padding: 15px; background: rgba(30, 136, 229, 0.1); border-radius: 6px; margin-bottom: 15px;">
+          <p style="color: var(--text-secondary); font-size: 0.9rem;">Risk Amount</p>
+          <p style="font-size: 2rem; font-weight: bold; color: var(--danger-color); margin-top: 5px;" id="resultRiskAmount">$0.00</p>
+        </div>
+
+        <div style="padding: 15px; background: rgba(30, 136, 229, 0.1); border-radius: 6px; margin-bottom: 15px;">
+          <p style="color: var(--text-secondary); font-size: 0.9rem;">Lot Size</p>
+          <p style="font-size: 2rem; font-weight: bold; color: var(--primary-light); margin-top: 5px;" id="resultLotSize">0.00</p>
+        </div>
+
+        <div style="padding: 15px; background: rgba(30, 136, 229, 0.1); border-radius: 6px; margin-bottom: 15px;">
+          <p style="color: var(--text-secondary); font-size: 0.9rem;">Potential Profit (1:1 R/R)</p>
+          <p style="font-size: 2rem; font-weight: bold; color: var(--success-color); margin-top: 5px;" id="resultProfit">$0.00</p>
+        </div>
+
+        <div style="padding: 15px; background: rgba(30, 136, 229, 0.1); border-radius: 6px;">
+          <p style="color: var(--text-secondary); font-size: 0.9rem;">Risk/Reward Ratio</p>
+          <p style="font-size: 1.5rem; font-weight: bold; color: var(--primary-light); margin-top: 5px;" id="resultRR">1:1</p>
+        </div>
+      </div>
+
+      <div id="riskEmpty" style="text-align: center; padding: 40px; color: var(--text-secondary);">
+        <p style="font-size: 1.1rem;">👈 Fill in the form and calculate</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Risk Levels Reference -->
+  <div class="card" style="margin-top: 40px;">
+    <div class="card-header">
+      <h3 class="card-title">Risk Level Guidelines</h3>
+    </div>
+
+    <div class="grid grid-4">
+      <div style="padding: 20px; background: rgba(30, 136, 229, 0.1); border-radius: 6px;">
+        <h4 style="color: var(--primary-light); margin-bottom: 10px;">🛡️ Ultra Low</h4>
+        <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">
+          <strong>Risk:</strong> 0.5% per trade<br>
+          <strong>Leverage:</strong> 1x<br>
+          <strong>Use:</strong> New traders
+        </p>
+      </div>
+
+      <div style="padding: 20px; background: rgba(30, 136, 229, 0.1); border-radius: 6px;">
+        <h4 style="color: var(--primary-light); margin-bottom: 10px;">🟢 Low</h4>
+        <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">
+          <strong>Risk:</strong> 1% per trade<br>
+          <strong>Leverage:</strong> 1x<br>
+          <strong>Use:</strong> Conservative traders
+        </p>
+      </div>
+
+      <div style="padding: 20px; background: rgba(30, 136, 229, 0.1); border-radius: 6px;">
+        <h4 style="color: var(--primary-light); margin-bottom: 10px;">🟡 Medium</h4>
+        <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">
+          <strong>Risk:</strong> 2% per trade<br>
+          <strong>Leverage:</strong> 2x<br>
+          <strong>Use:</strong> Balanced traders
+        </p>
+      </div>
+
+      <div style="padding: 20px; background: rgba(30, 136, 229, 0.1); border-radius: 6px;">
+        <h4 style="color: var(--primary-light); margin-bottom: 10px;">🔴 High</h4>
+        <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">
+          <strong>Risk:</strong> 3% per trade<br>
+          <strong>Leverage:</strong> 3x<br>
+          <strong>Use:</strong> Experienced traders
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.getElementById('riskForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const data = {
+      account_balance: parseFloat(document.getElementById('account_balance').value),
+      risk_percent: parseFloat(document.getElementById('risk_percent').value),
+      entry_price: parseFloat(document.getElementById('entry_price').value),
+      stop_loss: parseFloat(document.getElementById('stop_loss').value)
+    };
+
+    try {
+      const response = await fetch('/api/calculate-risk', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        document.getElementById('resultRiskAmount').textContent = `$${result.risk_amount.toFixed(2)}`;
+        document.getElementById('resultLotSize').textContent = result.lot_size.toFixed(2);
+        document.getElementById('resultProfit').textContent = `$${result.potential_profit.toFixed(2)}`;
+        document.getElementById('resultRR').textContent = `1:${result.risk_reward.toFixed(2)}`;
+        
+        document.getElementById('riskEmpty').style.display = 'none';
+        document.getElementById('riskResults').style.display = 'block';
+      }
+    } catch (err) {
+      alert('Error calculating risk');
+    }
+  });
+</script>
+{% endblock %}

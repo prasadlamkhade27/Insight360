@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Insights360{% endblock %}
+
+{% block content %}
+<section class="hero-section" style="padding: 40px 20px;">
+  <h1 class="hero-title">📊 Dashboard</h1>
+</section>
+
+<section class="container" style="padding: 40px 20px;">
+  <div class="grid grid-4">
+    <div class="stat-card">
+      <div class="stat-value">0</div>
+      <div class="stat-label">Active Strategies</div>
+    </div>
+    
+    <div class="stat-card">
+      <div class="stat-value">$0</div>
+      <div class="stat-label">Simulated Profit</div>
+    </div>
+    
+    <div class="stat-card">
+      <div class="stat-value">0%</div>
+      <div class="stat-label">Avg Win Rate</div>
+    </div>
+    
+    <div class="stat-card">
+      <div class="stat-value">0%</div>
+      <div class="stat-label">Avg Drawdown</div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top: 40px;">
+    <div class="card-header">
+      <h3 class="card-title">Recent Strategies</h3>
+    </div>
+    <p style="color: var(--text-secondary); text-align: center; padding: 40px;">
+      No strategies created yet. <a href="/" style="color: var(--primary-light);">Create your first strategy now!</a>
+    </p>
+  </div>
+</section>
+{% endblock %}

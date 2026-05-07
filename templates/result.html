@@ -1,0 +1,224 @@
+{% extends "base.html" %}
+
+{% block title %}Results - Insights360{% endblock %}
+
+{% block extra_css %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+{% endblock %}
+
+{% block content %}
+<section class="hero-section" style="padding: 40px 20px;">
+  <h1 class="hero-title">📊 Strategy Results</h1>
+  <p style="color: var(--text-secondary); text-align: center;">Generated: {{ timestamp }}</p>
+</section>
+
+<section class="container" style="padding: 40px 20px;">
+
+    <!-- Action Buttons -->
+    <div style="display: flex; gap: 15px; margin-bottom: 30px; flex-wrap: wrap;">
+        <form action="/download" method="POST" style="display: inline;">
+            <input type="hidden" name="trade_data" value="{{ data|tojson }}">
+            <input type="hidden" name="stats" value="{{ stats|tojson }}">
+            <button type="submit" class="btn btn-success">📥 Export to CSV</button>
+        </form>
+        <a href="/" class="btn btn-primary">↩️ Back to Planner</a>
+    </div>
+
+    <!-- Statistics Cards -->
+    <div class="stats-grid">
+        <div class="stat-card profit">
+            <div class="stat-value">${{ stats.final_balance }}</div>
+            <div class="stat-label">Final Balance</div>
+            <div class="stat-change" style="color: {% if stats.total_profit > 0 %}#00ff88{% else %}#ff4444{% endif %}">
+                {% if stats.total_profit > 0 %}+{% endif %}${{ stats.total_profit }}
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-value">{{ stats.roi }}%</div>
+            <div class="stat-label">ROI</div>
+            <div class="stat-change">Return on Investment</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-value">{{ stats.wins }}-{{ stats.losses }}</div>
+            <div class="stat-label">Win-Loss Record</div>
+            <div class="stat-change">{{ stats.win_rate }}% Win Rate</div>
+        </div>
+
+        <div class="stat-card danger">
+            <div class="stat-value">{{ stats.max_drawdown }}%</div>
+            <div class="stat-label">Max Drawdown</div>
+            <div class="stat-change">Largest Loss Peak-to-Trough</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-value">{{ stats.profit_factor }}</div>
+            <div class="stat-label">Profit Factor</div>
+            <div class="stat-change">Gross Profit / Gross Loss</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-value">${{ stats.avg_trade_profit }}</div>
+            <div class="stat-label">Avg Trade Profit</div>
+            <div class="stat-change">Average per trade</div>
+        </div>
+    </div>
+
+    <!-- Charts Section -->
+    <div class="charts-section">
+        <div class="chart-container">
+            <h3>📈 Equity Curve</h3>
+            <canvas id="balanceChart"></canvas>
+        </div>
+
+        <div class="chart-container">
+            <h3>🎯 Win/Loss Distribution</h3>
+            <canvas id="winLossChart" style="max-width: 400px; margin: 0 auto;"></canvas>
+        </div>
+    </div>
+
+    <!-- Trade Details Table -->
+    <div class="trades-section">
+        <h3>📋 Trade Details</h3>
+        <div class="table-responsive">
+            <table class="table table-dark table-striped table-hover">
+                <thead class="table-success">
+                <tr>
+                    <th>#</th>
+                    <th>Type</th>
+                    <th>Start Balance</th>
+                    <th>Profit/Loss</th>
+                    <th>Risk</th>
+                    <th>Lot Size</th>
+                    <th>End Balance</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for row in data %}
+                <tr class="{% if row['Profit/Loss'] > 0 %}win-trade{% else %}loss-trade{% endif %}">
+                    <td><strong>{{ row['Trade #'] }}</strong></td>
+                    <td>
+                        <span class="badge {% if row['Type'] == 'Win' %}bg-success{% else %}bg-danger{% endif %}">
+                            {{ row['Type'] }}
+                        </span>
+                    </td>
+                    <td>${{ row['Start Balance'] }}</td>
+                    <td>
+                        <span class="{% if row['Profit/Loss'] > 0 %}text-success{% else %}text-danger{% endif %}">
+                            {% if row['Profit/Loss'] > 0 %}+{% endif %}${{ row['Profit/Loss'] }}
+                        </span>
+                    </td>
+                    <td>${{ row['Risk'] }}</td>
+                    <td>{{ row['Lot Size'] }}</td>
+                    <td><strong>${{ row['End Balance'] }}</strong></td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Interpretation Guide -->
+    <div class="interpretation-guide">
+        <h3>📚 Understanding Your Results</h3>
+        <div class="guide-items">
+            <div class="guide-item">
+                <h5>✅ Good Signs</h5>
+                <ul>
+                    <li>ROI above 20% (annualized)</li>
+                    <li>Win rate above 50%</li>
+                    <li>Profit factor above 1.5</li>
+                    <li>Max drawdown below 20%</li>
+                </ul>
+            </div>
+            <div class="guide-item">
+                <h5>⚠️ Warning Signs</h5>
+                <ul>
+                    <li>Win rate below 40%</li>
+                    <li>Profit factor below 1.0</li>
+                    <li>Max drawdown above 50%</li>
+                    <li>High volatility in equity curve</li>
+                </ul>
+            </div>
+            <div class="guide-item">
+                <h5>💡 Tips</h5>
+                <ul>
+                    <li>Compare multiple strategies</li>
+                    <li>Test with different starting balances</li>
+                    <li>Adjust risk parameters for better results</li>
+                    <li>Track actual trading against projections</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Equity Curve Chart
+    const equityData = JSON.parse('{{ graph_data|tojson|safe }}');
+    const ctx = document.getElementById('balanceChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: equityData.map((_, i) => i === 0 ? 'Start' : `Trade ${i}`),
+            datasets: [{
+                label: 'Account Balance ($)',
+                data: equityData,
+                borderColor: '#00e676',
+                backgroundColor: 'rgba(0, 230, 118, 0.1)',
+                fill: true,
+                tension: 0.4,
+                pointRadius: 3,
+                pointBackgroundColor: '#00e676',
+                pointBorderColor: '#fff'
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            plugins: {
+                legend: { 
+                    labels: { color: '#fff' }
+                }
+            },
+            scales: {
+                x: { 
+                    ticks: { color: '#fff' },
+                    grid: { color: 'rgba(255,255,255,0.1)' }
+                },
+                y: { 
+                    ticks: { color: '#fff' },
+                    grid: { color: 'rgba(255,255,255,0.1)' }
+                }
+            }
+        }
+    });
+
+    // Win/Loss Pie Chart
+    const stats = {{ stats|tojson|safe }};
+    const piectx = document.getElementById('winLossChart').getContext('2d');
+    new Chart(piectx, {
+        type: 'doughnut',
+        data: {
+            labels: ['Wins', 'Losses'],
+            datasets: [{
+                data: [stats.wins, stats.losses],
+                backgroundColor: ['#00e676', '#ff4444'],
+                borderColor: ['#fff', '#fff'],
+                borderWidth: 2
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { 
+                    labels: { color: '#fff' }
+                }
+            }
+        }
+    });
+</script>
+</section>
+
+{% endblock %}
