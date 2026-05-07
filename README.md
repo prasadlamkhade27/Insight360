@@ -6,88 +6,250 @@
 
 ---
 
-## ✨ Key Features & Improvements
+## ✨ Key Features
 
-### 1. **📱 Multi-Tab Interface**
-   - **Quick Presets Tab**: One-click strategy templates
-   - **Manual Setup Tab**: Full control over all parameters
-   - **Guide Tab**: Comprehensive tutorial and help documentation
+### 1. **🏠 Professional Landing Page**
+Sleek and modern landing page with hero section, feature cards, platform statistics, and quick access to all trading tools.
+
+![Landing Page](images/landing-page.png)
+
+- **Hero Section**: Eye-catching banner with call-to-action buttons
+- **Feature Cards**: 6 key features displayed prominently
+- **Platform Statistics**: Shows 50K+ users, $2.5B simulated capital, 99.9% uptime
+- **Responsive Design**: Works seamlessly on all devices
+
+---
 
 ### 2. **⚡ Preset Trading Strategies**
-   - **Conservative**: 0.5% daily return, 65% win rate, 2:1 R/R, 1x leverage
-   - **Balanced**: 1.5% daily return, 60% win rate, 1.5:1 R/R, 2x leverage
-   - **Aggressive**: 3% daily return, 55% win rate, 1:1 R/R, 5x leverage
-   - **Scalper**: 0.2% daily return, 70% win rate, 0.5:1 R/R, 3x leverage
-   - **Custom**: Full manual configuration capability
+One-click strategy templates perfect for beginners and professionals. Four pre-configured profiles with different risk levels.
+
+![Preset Strategies](images/presets.png)
+
+- **Conservative**: 0.5% daily return, 65% win rate, 2:1 R/R, 1x leverage
+- **Balanced**: 1.5% daily return, 60% win rate, 1.5:1 R/R, 2x leverage  
+- **Aggressive**: 3% daily return, 55% win rate, 1:1 R/R, 5x leverage
+- **Scalper**: 0.2% daily return, 70% win rate, 0.5:1 R/R, 3x leverage
+- **Custom**: Full manual configuration capability
+
+---
 
 ### 3. **📊 Advanced Statistics & Analysis**
-   - **Final Balance & Total Profit**: Clear P&L tracking
-   - **ROI (Return on Investment)**: Percentage returns
-   - **Win Rate**: Actual percentage of winning trades
-   - **Max Drawdown**: Largest peak-to-trough decline
-   - **Profit Factor**: Gross profit divided by gross loss
-   - **Average Trade Profit**: Per-trade profitability
-   - **Win-Loss Record**: Total wins vs losses
+Comprehensive metrics to analyze your trading strategy performance with professional-grade calculations.
+
+![Analytics Dashboard](images/analytics.png)
+
+- **Final Balance & Total Profit**: Clear P&L tracking
+- **ROI (Return on Investment)**: Percentage returns on capital
+- **Win Rate**: Actual percentage of winning trades
+- **Max Drawdown**: Largest peak-to-trough decline
+- **Profit Factor**: Gross profit divided by gross loss ratio
+- **Average Trade Profit**: Per-trade profitability metrics
+- **Win-Loss Record**: Total wins vs losses breakdown
+
+---
 
 ### 4. **📈 Professional Visualizations**
-   - **Equity Curve Chart**: Real-time balance growth visualization
-   - **Win/Loss Distribution Pie Chart**: Visual breakdown of results
-   - **Interactive Charts**: Hover tooltips and detailed insights
-   - **Responsive Design**: Works on desktop, tablet, and mobile
+Interactive charts and graphs for deep analysis and strategy visualization.
+
+![Charts & Visualizations](images/charts.png)
+
+- **Equity Curve Chart**: Real-time balance growth visualization
+- **Win/Loss Distribution Pie Chart**: Visual breakdown of results
+- **Interactive Charts**: Hover tooltips and detailed insights
+- **Responsive Design**: Works on desktop, tablet, and mobile devices
+- **Chart.js Integration**: Smooth animations and professional styling
+
+---
 
 ### 5. **💎 Profit Milestones System**
-   - Set multiple account balance levels
-   - Define different profit targets for each milestone
-   - Add/remove milestones dynamically
-   - Realistic multi-tier strategy simulation
+Set multiple profit targets at different account balance levels for realistic multi-tier strategy simulation.
 
-### 6. **🔧 Comprehensive Parameter Control**
-   - **Starting Balance**: Initial trading capital
-   - **Daily Return Target**: Expected profit percentage
-   - **Win Rate**: Percentage of winning trades
-   - **Risk-to-Reward Ratio**: Risk management parameter
-   - **Stop Loss (Pips)**: Loss limitation setting
-   - **Leverage**: Trading power multiplier
-   - **Number of Trades**: Simulation length
+![Milestones](images/milestones.png)
 
-### 7. **✅ Advanced Form Validation**
-   - Real-time input validation with visual feedback
-   - Helpful tooltips for invalid entries
-   - Prevents submission of incomplete/invalid data
-   - Color-coded input states (green valid, red invalid)
+- Set multiple account balance levels
+- Define different profit targets for each milestone
+- Add/remove milestones dynamically
+- Realistic multi-tier strategy simulation
+- Track progress toward each goal
 
-### 8. **📥 Enhanced CSV Export**
-   - Full trade-by-trade details
-   - Summary statistics included
-   - Professional formatting
-   - Timestamped filenames
-   - Actual calculated data (not dummy data)
+---
 
-### 9. **🎨 Modern Dark UI/UX**
-   - Professional dark theme with green accents
-   - Smooth animations and transitions
-   - Responsive grid layout
-   - Mobile-optimized interface
-   - Accessible color scheme
+### 6. **🛡️ Risk Calculator**
+Professional position size calculator to determine optimal lot sizes and manage risk effectively.
 
-### 10. **📖 Built-in User Guide**
-   - Step-by-step getting started instructions
-   - Parameter explanations with examples
-   - Results interpretation guide
-   - Trading success tips
-   - Professional best practices
+![Risk Calculator](images/risk-calculator.png)
 
-### 11. **🔔 Real-time Notifications**
-   - Success/error notifications
-   - Popup alerts for user actions
-   - Form validation feedback
-   - Milestone management confirmations
+- Calculate optimal position sizes based on risk percentage
+- Determine lot sizes for forex trading
+- Calculate potential profit and loss
+- Risk-to-reward ratio calculations
+- Risk level guidelines (Ultra Low, Low, Medium, High)
 
-### 12. **❌ Error Handling**
-   - Dedicated error page
-   - Meaningful error messages
-   - User-friendly guidance
-   - Recovery options
+---
+
+### 7. **📝 Trading Journal**
+Track and analyze all your trades in one centralized location for performance improvement.
+
+![Trading Journal](images/journal.png)
+
+- Log individual trades with entry/exit prices
+- Track profit and loss per trade
+- Add detailed notes for each trade
+- View statistics (total trades, win rate, total P/L)
+- Performance tracking and analysis
+
+---
+
+### 8. **📚 Educational Hub**
+Comprehensive learning resources for traders of all skill levels.
+
+![Educational Hub](images/education.png)
+
+- Risk Management Basics
+- Technical Analysis Guide
+- Forex Trading 101
+- Money Management strategies
+- Trading Psychology fundamentals
+- Category-based filtering (Education, Risk, Forex, Psychology)
+- Featured courses and learning paths
+
+---
+
+### 9. **🛠️ Trading Tools Suite**
+Additional professional trading calculators and utilities.
+
+![Trading Tools](images/tools.png)
+
+- **Position Size Calculator**: Calculate optimal lot sizes
+- **Pip Value Calculator**: Calculate pip values for different pairs
+- **Lot Size Converter**: Convert between micro, mini, standard lots
+- **Profit Calculator**: Calculate potential P&L
+- **Pivot Point Calculator**: Calculate support/resistance levels
+- **Margin Calculator**: Calculate margin requirements
+
+---
+
+### 10. **🔧 Comprehensive Parameter Control**
+Fine-tune every aspect of your trading strategy with advanced configuration options.
+
+![Manual Setup](images/manual-setup.png)
+
+- **Starting Balance**: Initial trading capital configuration
+- **Daily Return Target**: Expected profit percentage
+- **Win Rate**: Percentage of winning trades (50-70%)
+- **Risk-to-Reward Ratio**: Risk management parameter
+- **Stop Loss (Pips)**: Loss limitation setting
+- **Leverage**: Trading power multiplier (1-100x)
+- **Number of Trades**: Simulation length
+- Real-time parameter adjustments
+
+---
+
+### 11. **✅ Advanced Form Validation**
+Smart validation to prevent errors and ensure accurate simulations.
+
+![Form Validation](images/validation.png)
+
+- Real-time input validation with visual feedback
+- Helpful tooltips for invalid entries
+- Prevents submission of incomplete/invalid data
+- Color-coded input states (green valid, red invalid)
+- Field-specific validation rules
+
+---
+
+### 12. **📥 Enhanced CSV Export**
+Export your complete trading simulation data for further analysis in Excel or other tools.
+
+![CSV Export](images/export.png)
+
+- Full trade-by-trade details exported
+- Summary statistics included
+- Professional formatting
+- Timestamped filenames
+- Actual calculated data (not dummy data)
+- Easy integration with other tools
+
+---
+
+### 13. **📱 Professional Dashboard**
+Central hub to view all your trading statistics and recent strategies at a glance.
+
+![Dashboard](images/dashboard.png)
+
+- Active strategies counter
+- Simulated profit overview
+- Average win rate display
+- Average drawdown metrics
+- Recent strategies section
+- Quick links to create new strategies
+
+---
+
+### 14. **👥 About Page**
+Learn more about the Insights360 mission, team, and platform statistics.
+
+![About](images/about.png)
+
+- Company mission and vision
+- Team member profiles
+- Platform statistics and achievements
+- Key features and benefits
+- Why choose Insights360
+
+---
+
+### 15. **🎨 Professional Dark UI/UX**
+Modern, sleek interface designed for serious traders with an eye-friendly dark theme.
+
+![UI/UX](images/ui-design.png)
+
+- Professional dark theme with blue/cyan accents
+- Smooth animations and transitions
+- Responsive grid layout
+- Mobile-optimized interface
+- Accessible color scheme (WCAG compliant)
+- Intuitive navigation
+
+---
+
+### 16. **📖 Built-in User Guide**
+Comprehensive in-app tutorial to help users get started quickly.
+
+![User Guide](images/guide.png)
+
+- Step-by-step getting started instructions
+- Parameter explanations with examples
+- Results interpretation guide
+- Trading success tips and best practices
+- Preset strategy descriptions
+- Professional recommendations
+
+---
+
+### 17. **🔔 Real-time Notifications**
+User feedback system for all actions within the platform.
+
+![Notifications](images/notifications.png)
+
+- Success/error notifications
+- Popup alerts for user actions
+- Form validation feedback messages
+- Milestone management confirmations
+- Toast-style notifications
+
+---
+
+### 18. **❌ Professional Error Handling**
+Graceful error management with helpful guidance for users.
+
+![Error Handling](images/errors.png)
+
+- Dedicated, styled error page
+- Meaningful error messages
+- User-friendly guidance for resolution
+- Recovery options and navigation back
+- Prevents data loss
 
 ---
 
@@ -95,17 +257,44 @@
 
 ```
 fx_insights360/
-├── app.py                  # Flask backend with enhanced features
+├── app.py                      # Flask backend with all routes
 ├── static/
-│   ├── main.js            # Advanced JavaScript with validation
-│   ├── style.css          # Professional CSS styling
+│   ├── main.js                # Advanced JavaScript with validation & interactivity
+│   ├── style.css              # Professional CSS styling (600+ lines)
 ├── templates/
-│   ├── index.html         # Main form with tabs and presets
-│   ├── result.html        # Results page with analytics
-│   └── error.html         # Error handling page
-├── package.json           # Node dependencies
-├── postcss.config.js      # PostCSS configuration
-└── tailwind.config.js     # Tailwind configuration
+│   ├── base.html              # Master template (navbar, footer, layout)
+│   ├── index.html             # Landing page with hero and strategy planner
+│   ├── result.html            # Results page with analytics and charts
+│   ├── error.html             # Error page
+│   ├── dashboard.html         # User dashboard with statistics
+│   ├── risk-calculator.html   # Risk calculator tool
+│   ├── trading-journal.html   # Trade logging interface
+│   ├── educational-hub.html   # Educational resources and courses
+│   ├── tools.html             # Trading tools suite
+│   └── about.html             # About page with team and mission
+├── images/                     # Screenshots and feature images (optional)
+│   ├── landing-page.png
+│   ├── presets.png
+│   ├── analytics.png
+│   ├── charts.png
+│   ├── milestones.png
+│   ├── risk-calculator.png
+│   ├── journal.png
+│   ├── education.png
+│   ├── tools.png
+│   ├── manual-setup.png
+│   ├── validation.png
+│   ├── export.png
+│   ├── dashboard.png
+│   ├── about.png
+│   ├── ui-design.png
+│   ├── guide.png
+│   ├── notifications.png
+│   └── errors.png
+├── package.json               # Node dependencies
+├── postcss.config.js          # PostCSS configuration
+├── tailwind.config.js         # Tailwind configuration
+└── README.md                  # This file
 ```
 
 ---
@@ -371,17 +560,70 @@ For issues, questions, or suggestions:
 
 ---
 
+## 🖼️ Adding Feature Images
+
+To display screenshots for each feature, create an `images` folder in the project root and add the following images:
+
+### Image Setup Instructions
+
+1. **Create the images folder**
+   ```bash
+   mkdir images
+   ```
+
+2. **Add screenshots for each feature**
+   | Image Filename | Feature | Description |
+   |---|---|---|
+   | `landing-page.png` | Professional Landing Page | Hero section and platform overview |
+   | `presets.png` | Preset Strategies | Four strategy templates |
+   | `analytics.png` | Statistics & Analysis | Performance metrics cards |
+   | `charts.png` | Visualizations | Equity curve and pie charts |
+   | `milestones.png` | Profit Milestones | Milestone management interface |
+   | `risk-calculator.png` | Risk Calculator | Position sizing tool |
+   | `journal.png` | Trading Journal | Trade logging interface |
+   | `education.png` | Educational Hub | Learning resources and courses |
+   | `tools.png` | Trading Tools | Suite of calculators |
+   | `manual-setup.png` | Manual Configuration | Parameter setup form |
+   | `validation.png` | Form Validation | Input validation feedback |
+   | `export.png` | CSV Export | Data export functionality |
+   | `dashboard.png` | Dashboard | Statistics overview |
+   | `about.png` | About Page | Company mission and team |
+   | `ui-design.png` | UI/UX Design | Dark theme showcase |
+   | `guide.png` | User Guide | Tutorial interface |
+   | `notifications.png` | Notifications | Alert system |
+   | `errors.png` | Error Handling | Error page design |
+
+3. **Image Specifications**
+   - **Format**: PNG, JPG, or WebP
+   - **Size**: 1200x800px or larger (aspect ratio 3:2)
+   - **Location**: Place all images in the `images/` folder at project root
+   - **Naming**: Use lowercase filenames matching the references above
+
+4. **Screenshot Tools**
+   - **Windows**: Windows Snipping Tool or ShareX
+   - **Mac**: Built-in Screenshot (Cmd+Shift+4)
+   - **Linux**: Flameshot or GNOME Screenshot
+   - **Browser**: Browser DevTools > Device mode for responsive screenshots
+
+5. **Editing Images**
+   - Add borders/frames for consistency
+   - Highlight key UI elements with annotations
+   - Use consistent resolution and styling
+   - Add subtle shadows or highlights
+
+---
+
 ## ⭐ Key Takeaways
 
 **Insights360** is now a professional-grade trading strategy simulator with:
-- Intuitive, user-friendly interface
-- Comprehensive statistical analysis
-- Multiple visualization options
-- Built-in educational content
-- Professional dark theme
-- Mobile-responsive design
-- Advanced form validation
-- Real-time feedback
+- Intuitive, user-friendly interface with 18+ advanced features
+- Comprehensive statistical analysis and professional metrics
+- Multiple visualization options (charts, tables, graphs)
+- Built-in educational content and user guides
+- Professional dark theme with responsive design
+- Advanced form validation and error handling
+- Real-time notifications and user feedback
+- Fully functional trading tools and calculators
 
 Use it to test your trading strategies, validate ideas, and optimize parameters before risking real capital! 🎯
 
