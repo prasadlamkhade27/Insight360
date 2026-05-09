@@ -23,7 +23,7 @@ Sleek and modern landing page with hero section, feature cards, platform statist
 ### 2. **⚡ Preset Trading Strategies**
 One-click strategy templates perfect for beginners and professionals. Four pre-configured profiles with different risk levels.
 
-![Preset Strategies](images/presets.png)
+![Preset Strategies](https://github.com/prasadlamkhade27/Insight360/blob/38df0882e67c01b6d29a24d0c9bb6080be412bdd/images/dashboard.jpeg)
 
 - **Conservative**: 0.5% daily return, 65% win rate, 2:1 R/R, 1x leverage
 - **Balanced**: 1.5% daily return, 60% win rate, 1.5:1 R/R, 2x leverage  
